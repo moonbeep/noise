@@ -1,0 +1,56 @@
+@import 'tailwindcss';
+
+@theme {
+	/*Dark theme: Default*/
+	--color-content: var(--color-gray-100);
+	--color-subtext: var(--color-gray-500);
+
+	--color-separator: var(--color-gray-800);
+	--color-accent: var(--color-gray-900);
+	--color-red: var(--color-red-400);
+	--color-backdrop: var(--color-black);
+	--color-green: var(--color-green-400);
+	--color-amber: var(--color-amber-400);
+	--color-cursor: var(--color-emerald-400);
+	--color-muted: var(--color-gray-600);
+	--color-highlight: var(--color-gray-700);
+
+	/*Light theme*/
+	--color-l-content: var(--color-gray-950);
+	--color-l-subtext: var(--color-gray-500);
+
+	--color-l-separator: var(--color-violet-800);
+	--color-l-accent: var(--color-violet-200);
+	--color-l-red: var(--color-red-400);
+	--color-l-backdrop: var(--color-amber-50);
+	--color-l-green: var(--color-green-600);
+	--color-l-amber: var(--color-amber-600);
+	--color-l-cursor: var(--color-emerald-600);
+	--color-l-muted: var(--color-gray-400);
+	--color-l-highlight: var(--color-gray-200);
+}
+
+@custom-variant light (&:where(.light, .light *));
+
+/* Grid cell base styles */
+@layer components {
+	.grid-cell {
+		@apply pointer-events-none box-border border border-content/12 bg-content/6 light:border-l-content/12 light:bg-l-content/6;
+	}
+
+	.grid-cell.lit-green {
+		@apply border-green bg-green shadow-[0_0_6px_var(--color-green)] light:border-l-green light:bg-l-green light:shadow-[0_0_6px_var(--color-l-green)];
+	}
+
+	.grid-cell.lit-amber {
+		@apply border-amber bg-amber shadow-[0_0_6px_var(--color-amber)] light:border-l-amber light:bg-l-amber light:shadow-[0_0_6px_var(--color-l-amber)];
+	}
+
+	.grid-cell.lit-red {
+		@apply border-red bg-red shadow-[0_0_6px_var(--color-red)] light:border-l-red light:bg-l-red light:shadow-[0_0_6px_var(--color-l-red)];
+	}
+
+	.grid-cell.hover {
+		@apply bg-content/18 light:bg-l-content/18;
+	}
+}
