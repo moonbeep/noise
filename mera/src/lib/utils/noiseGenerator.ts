@@ -1,3 +1,4 @@
+import { base } from '$app/paths';
 import {
 	GRID_COLS,
 	VOLUME_MULTIPLIER,
@@ -85,7 +86,7 @@ export async function play(w: Weights, volume: number): Promise<void> {
 	});
 
 	// Load the worklet module (no-op if already registered in this context)
-	await ctx.audioWorklet.addModule('/noise-processor.js');
+	await ctx.audioWorklet.addModule(`${base}/noise-processor.js`);
 	worklet = new AudioWorkletNode(ctx, 'noise-processor');
 
 	// Chain: worklet → filter[0] → … → filter[N-1] → gain → destination

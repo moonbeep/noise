@@ -1,8 +1,13 @@
 import adapter from '@sveltejs/adapter-static';
 
+const base = process.env.BASE_PATH ?? '';
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
+		paths: {
+			base
+		},
 		adapter: adapter({
 			// default options are shown. On some platforms
 			// these options are set automatically — see below
